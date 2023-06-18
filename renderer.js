@@ -106,3 +106,11 @@ document.getElementById('search-input').addEventListener('keyup', function(event
         document.getElementById('search-button').click();
     }
 });
+
+window.onload = function() {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    setTimeout(function() {
+      loadingOverlay.style.display = 'none';
+    }, 1000);
+  };
+  
