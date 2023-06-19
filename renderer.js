@@ -74,6 +74,8 @@ function displayMovies(movies) {
     });
 }
 
+let createdByElement;
+
 document.getElementById('search-button').addEventListener('click', function() {
     const searchInput = document.getElementById('search-input');
     const query = searchInput.value.trim();
@@ -81,8 +83,11 @@ document.getElementById('search-button').addEventListener('click', function() {
     if (query !== '') {
         searchMovies(query);
 
-        // Display created by element when the search button is clicked
-        const createdByElement = document.createElement('p');
+        if (createdByElement) {
+            createdByElement.remove();
+        }
+
+        createdByElement = document.createElement('p');
         createdByElement.textContent = 'Page created by ';
         const createdByLink = document.createElement('a');
         createdByLink.textContent = 'Blijonas';
@@ -100,6 +105,7 @@ document.getElementById('search-button').addEventListener('click', function() {
         console.log(`Searched movie: ${query}`);
     }
 });
+
 
 document.getElementById('search-input').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
