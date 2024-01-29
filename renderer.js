@@ -55,19 +55,15 @@ function displayMovies(movies) {
         const releaseDateElement = document.createElement('p');
         releaseDateElement.textContent = `Release Date: ${releaseDate}`;
 
-        const overviewElement = document.createElement('p');
-        overviewElement.textContent = overview;
-
         const posterElement = document.createElement('img');
         posterElement.src = `https://image.tmdb.org/t/p/w300/${posterPath}`;
         posterElement.alt = title;
         posterElement.onerror = function() {
-            this.src = 'placeholder.jpg'; // Add the path to your placeholder image
+            this.src = 'placeholder.jpg';
         };
 
         movieElement.appendChild(titleElement);
         movieElement.appendChild(releaseDateElement);
-        movieElement.appendChild(overviewElement);
         movieElement.appendChild(posterElement);
 
         moviesContainer.appendChild(movieElement);
@@ -94,10 +90,12 @@ document.getElementById('search-button').addEventListener('click', function() {
         createdByLink.href = 'https://github.com/Balionelis';
         createdByLink.target = '_blank';
         createdByLink.style.textDecoration = 'none';
-        createdByLink.style.color = '#3474eb';
+        createdByLink.style.color = '#5EF1CF';
         createdByElement.appendChild(createdByLink);
         createdByElement.style.textAlign = 'center';
         createdByElement.style.fontWeight = 'bold';
+        createdByElement.style.fontFamily = 'sfmono-regular';
+        createdByElement.style.color = 'white'
 
         const bodyElement = document.getElementsByTagName('body')[0];
         bodyElement.appendChild(createdByElement);
@@ -112,11 +110,3 @@ document.getElementById('search-input').addEventListener('keyup', function(event
         document.getElementById('search-button').click();
     }
 });
-
-window.onload = function() {
-    const loadingOverlay = document.getElementById('loading-overlay');
-    setTimeout(function() {
-      loadingOverlay.style.display = 'none';
-    }, 1000);
-  };
-  

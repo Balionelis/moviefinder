@@ -8,16 +8,16 @@
     <title>Movie Finder App</title>
 </head>
 <body>
-    <div id="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
-    <h1>Movie Finder</h1>
+    <h1 class="designed">Designed by Blijonas</h1>
+    <h1 class="movie-finder">Movie Finder</h1>
     <div id="search-container">
         <input type="text" id="search-input" autocomplete="off" placeholder="Search for a movie...">
         <button id="search-button">Search</button>
     </div>
     <div id="movies-container"></div>
-
+    <a href="https://www.imdb.com" target="_blank"><img id="imdb-img" src="images/imdb.png"></a>
+    <a href="https://github.com/Balionelis/moviefinder" target="_blank"><img id="github-img" src="images/github-icon.png"></a>
+    <img id="line-img" src="images/line.png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="renderer.js"></script>

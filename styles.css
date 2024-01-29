@@ -1,15 +1,36 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #333;
-  color: #fff;
+@font-face {
+  font-family: sfmono-regular;
+  src: url(fonts/SFMono-Regular.otf)
 }
 
-h1 {
+@font-face {
+  font-family: halifax-bold;
+  src: url(fonts/Halifax\ W03\ Bold.otf)
+}
+
+body {
+  background-color: #101C2C;
+}
+
+.designed {
+  font-family: sfmono-regular;
   text-align: center;
-  margin-top: 40px;
-  color: #fff;
+  color: #5EF1CF;
+  font-size: 20px;
+  font-weight: 400;
+  word-wrap: break-word; 
+  padding-top: 40px;
+}
+
+.movie-finder {
+  font-family: halifax-bold;
+  text-align: center;
+  color: #CAD4F2;
+  font-size: 50px;
+  font-weight: 700;
+  word-wrap: break-word;
+  line-height: 20px;
+  padding-bottom: 50px
 }
 
 #search-container {
@@ -18,31 +39,91 @@ h1 {
 }
 
 #search-input {
-  padding: 10px;
-  font-size: 16px;
+  padding: 15px;
+  font-size: 19px;
   width: 100%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  font-family: sfmono-regular;
+  max-width: 370px;
+  border: 1px solid #5EF1CF;
   outline: none;
   margin-bottom: 10px;
-  background-color: #222;
-  color: #fff;
+  background-color: #101C2C;
+  color: white;
+  text-align: center;
+  transition: border 0.2s ease-in-out;
+}
+
+#search-input:hover {
+  border: 2px solid #fff;
+}
+
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: white;
+}
+
+#line-img {
+  position: fixed;
+  bottom: -60px;
+  left: 0;
+  margin-left: 80px;
+}
+
+#github-img {
+  position: fixed;
+  bottom: 140px;
+  left: 0;
+  margin-left: 57px;
+  width: 45px;
+  height: 45px;
+  transition: filter 0.1s ease;
+  transition: transform 0.3s ease;
+}
+
+#imdb-img {
+  position: fixed;
+  margin-left: 59px;
+  width: 45px;
+  height: 45px;
+  bottom: 210px;
+  left: 0;
+  transition: filter 0.1s ease;
+  transition: transform 0.3s ease;
+}
+
+#imdb-img:hover {
+  filter: invert(85%) sepia(10%) saturate(2100%) hue-rotate(150deg);
+  transform: translateY(-3px);
+}
+
+#github-img:hover {
+  filter: invert(85%) sepia(10%) saturate(2100%) hue-rotate(150deg);
+  transform: translateY(-3px);
 }
 
 #search-button {
   display: block;
   margin: 5px auto 0;
-  padding: 8px 16px;
+  padding: 12px;
   font-size: 14px;
-  background-color: #222;
+  background-color: #101C2C;
   color: #fff;
-  border: none;
-  border-radius: 4px;
+  font-family: sfmono-regular;
+  border: 1px solid #5EF1CF;
   cursor: pointer;
   outline: none;
   width: 100%;
-  max-width: 300px;
+  max-width: 150px;
+  transition: border 0.2s ease-in-out;
+}
+
+#search-button:hover {
+  border: 2px solid #fff;
 }
 
 #movies-container {
@@ -51,30 +132,32 @@ h1 {
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: sfmono-regular;
+  text-align: center;
+  color: white;
 }
 
 .movie {
   width: 300px;
-  background-color: #444;
+  background-color: #101C2C;
   margin: 20px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border: 1px solid #5EF1CF;
 }
 
 .movie h2 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
 }
 
 .movie h2 a {
-  color: #3474eb;
+  color: #fff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
 }
 
 .movie h2 a:hover {
-  color: #3474eb;
+  color: #5EF1CF;
 }
 
 .movie p {
@@ -111,7 +194,7 @@ h1 {
   }
 
   #search-input {
-      max-width: 100%;
+      max-width: 350px;
   }
 
   #search-button {
@@ -122,36 +205,16 @@ h1 {
       width: calc(50% - 20px);
       margin: 10px;
   }
-}
-
-#loading-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.loading-spinner {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 5px solid #fff;
-  border-radius: 50%;
-  border-top-color: transparent;
-  animation: loading-spinner-animation 1s infinite linear;
-}
-
-@keyframes loading-spinner-animation {
-  0% {
-    transform: rotate(0deg);
+    
+  #line-img {
+      margin-left: 40px;
   }
-  100% {
-    transform: rotate(360deg);
+
+  #github-img {
+      margin-left: 17px;
+  }
+
+  #imdb-img {
+      margin-left: 17px;
   }
 }
