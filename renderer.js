@@ -56,11 +56,12 @@ function displayMovies(movies) {
         releaseDateElement.textContent = `Release Date: ${releaseDate}`;
 
         const posterElement = document.createElement('img');
-        posterElement.src = `https://image.tmdb.org/t/p/w300/${posterPath}`;
+        if (posterPath) {
+            posterElement.src = `https://image.tmdb.org/t/p/w300/${posterPath}`;
+        } else {
+            posterElement.src = 'placeholder.jpg';
+        }
         posterElement.alt = title;
-        posterElement.onerror = function() {
-            this.src = 'placeholder.jpg';
-        };
 
         movieElement.appendChild(titleElement);
         movieElement.appendChild(releaseDateElement);
