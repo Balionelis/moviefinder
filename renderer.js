@@ -1,11 +1,5 @@
-function getTMDB() {
-    return '1db' + 'a2d' + '2c4' + '6f0' + 'f76' + 'ce1' + 'a6d' + '8d1' + '3c1' + 'bd9' + '50';
-  }
-  
-const tmdb = getTMDB();
-  
 function searchMovies(query) {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${tmdb}&query=${query}`;
+    const url = `/api/movies?q=${query}`;
 
     axios.get(url)
         .then(response => {
@@ -16,6 +10,7 @@ function searchMovies(query) {
             console.error('Error fetching movies:', error);
         });
 }
+
 
 function displayMovies(movies) {
     const moviesContainer = document.getElementById('movies-container');
